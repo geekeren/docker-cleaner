@@ -1,3 +1,6 @@
 FROM docker
+ENV CLEAN_INTERVAL=3600
+ENV CLEAN_FILTER="until=48h"
+WORKDIR /app
 COPY . .
-ENTRYPOINT ["./clean_docker.sh"]
+CMD ["sh", "./clean_docker.sh"]
